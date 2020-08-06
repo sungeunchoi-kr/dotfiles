@@ -27,7 +27,3 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-export PATH="$HOME/.cargo/bin:$PATH"

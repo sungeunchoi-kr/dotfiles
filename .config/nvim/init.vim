@@ -11,18 +11,16 @@ Plug 'morhetz/gruvbox'
 
 call plug#end()"Config Section
 
+"================================================================="
+" common settings
+"================================================================="
 inoremap kj <ESC>
-nmap <C-n> :NERDTreeToggle<CR>
-
-let g:NERDTreeIgnore = ['^node_modules$']
-
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-set relativenumber
+set number relativenumber
 
 set smarttab
 set cindent
@@ -30,13 +28,23 @@ set tabstop=4
 set shiftwidth=4
 set colorcolumn=120
 set expandtab
+nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
 
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+"================================================================="
+" color scheme
+"================================================================="
 set termguicolors
 set background=dark
-" let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
-" set termguicolors
+
+"================================================================="
+" nerdtree
+"================================================================="
+nmap <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeIgnore = ['^node_modules$']
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
